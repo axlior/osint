@@ -40,11 +40,28 @@ def get_input():
     # Afficher le résumé
     resume_label.config(text=resume)
 
-    # Effacer la photo précédente
-    photo_label.config(image="")
-
     # Réactiver le bouton "Valider"
     submit_button.config(state=NORMAL)
+
+    # Envoyer la requête
+    send_request(nom, prenom, pseudo)
+
+def send_request(nom, prenom, pseudo):
+    urls = []
+    if nom:
+        urls.append("https://github.com/" + nom)
+    if prenom:
+        urls.append("https://github.com/" + prenom)
+    if pseudo:
+        urls.append("https://github.com/" + pseudo)
+
+    for url in urls:
+        try:
+            response = requests.get(url)
+            if response.status_code == 200:
+                liste.insert(END, url)
+        except requests.exceptions.RequestException:
+            pass
 
 def create_report():
     nom = nom_entry.get()
@@ -54,20 +71,8 @@ def create_report():
     adresse = adresse_entry.get()
     pseudo = pseudo_entry.get()
 
-    # Récupérer les URL
-    urls = []
-    if nom:
-        urls.append("https://github.com/" + nom)
-    if prenom:
-        urls.append("https://github.com/" + prenom)
-    if pseudo:
-        urls.append("https://github.com/" + pseudo)
-
     # Effacer le résumé précédent
     resume_label.config(text="")
-
-    # Effacer la photo précédente
-    photo_label.config(image="")
 
     # Créer le rapport HTML
     env = Environment(loader=FileSystemLoader('.'))
@@ -109,7 +114,6 @@ right_frame.pack(side=RIGHT, padx=20, pady=20)
 
 label = Label(header_frame, text="osint", font=('Arial', 24, 'bold'))
 label.pack()
-
 
 # Ajoutez des labels et des champs de saisie pour chaque variable
 nom_label = Label(left_frame, text="Nom :")
