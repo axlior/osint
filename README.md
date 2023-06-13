@@ -41,3 +41,5 @@ Assurez-vous d'avoir une connexion Internet active pendant l'installation des d�
 Après avoir suivi ces étapes, vous devriez avoir toutes les dépendances requises installées sur votre système, et vous pourrez exécuter l'outil OSINT sans rencontrer de problèmes liés aux dépendances manquantes.
 
 N'hésitez pas à explorer davantage les fonctionnalités de l'outil OSINT et à fournir des commentaires pour contribuer à son amélioration continue.
+
+mon twitter : @axlior_hmm
