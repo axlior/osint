@@ -30,6 +30,6 @@ Après avoir suivi ces étapes, vous devriez avoir toutes les dépendances requi
 N'hésitez pas à explorer davantage les fonctionnalités de l'outil OSINT et à fournir des commentaires pour contribuer à son amélioration continue.
 
 pour lancer le programme :
-    python3 main.pY
+    python3 main.py
 
 mon twitter : @axlior_hmm
